@@ -12,6 +12,6 @@ jobs:
 
     steps:
       - name: GITHUB_REF_NAME
-        run: echo $GITHUB_REF_NAME
+        run: echo "$GITHUB_REF_NAME"
       - name: GITHUB_REF
-        run: echo $GITHUB_REF
+        run: echo "$GITHUB_REF"
