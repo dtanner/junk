@@ -26,5 +26,8 @@ else
   echo "This token does not have write permissions to the repository."
 fi
 
-
+echo "api.github.com call:"
 curl -sS -f -I -H "Authorization: token $GITHUB_TOKEN" https://api.github.com
+
+echo "api.github.com/dtanner/chaperone call:"
+curl -sS -f -I -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/dtanner/chaperone
