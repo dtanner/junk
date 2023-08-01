@@ -18,6 +18,10 @@ RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: applicati
 echo "response for non-matching repo"
 echo $RESPONSE
 
+RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/user")
+echo "response for /user"
+echo $RESPONSE
+
 # Extract permissions from the response
 #PERMISSIONS=$(echo $RESPONSE | jq -r '.permissions')
 #echo "$PERMISSIONS"
