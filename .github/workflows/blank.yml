@@ -3,13 +3,11 @@ name: junk
 on:
   workflow_dispatch:
     
-
-
 jobs:
   foo:    
     runs-on: ubuntu-latest
 
     steps:
-      - name: echo env
-        run: env
+      - name: check permissions
+        run: ./check-permissions.sh ${{ secrets.GITHUB_TOKEN }}
 
