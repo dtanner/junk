@@ -15,9 +15,12 @@ RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: applicati
 # Extract permissions from the response
 PERMISSIONS=$(echo $RESPONSE | jq -r '.permissions')
 echo "$PERMISSIONS"
+# Extract admin and push permissions from the response
+ADMIN_PERMISSION=$(echo $RESPONSE | jq -r '.permissions.admin')
+PUSH_PERMISSION=$(echo $RESPONSE | jq -r '.permissions.push')
 
 # Check permissions
-if [[ $PERMISSIONS == *"admin"* || $PERMISSIONS == *"push"* ]]; then
+if [[ $ADMIN_PERMISSION == "true" ]] || [[ $PUSH_PERMISSION == "true" ]]; then
   echo "This token has write permissions to the repository."
 else
   echo "This token does not have write permissions to the repository."
