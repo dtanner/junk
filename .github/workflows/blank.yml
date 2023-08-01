@@ -1,9 +1,8 @@
 name: junk
 
 on:
-  release:
-    types: [created]
-
+  workflow_dispatch:
+    
 
 
 jobs:
@@ -13,7 +12,4 @@ jobs:
     steps:
       - name: echo env
         run: env
-      - name: GITHUB_REF_NAME
-        run: echo "$GITHUB_REF_NAME"
-      - name: GITHUB_REF
-        run: echo "$GITHUB_REF"
+
