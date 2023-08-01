@@ -25,3 +25,6 @@ if [[ $ADMIN_PERMISSION == "true" ]] || [[ $PUSH_PERMISSION == "true" ]]; then
 else
   echo "This token does not have write permissions to the repository."
 fi
+
+
+curl -sS -f -I -H "Authorization: token ${{ secrets.GITHUB_TOKEN}}" https://api.github.com
