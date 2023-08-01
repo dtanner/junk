@@ -9,9 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
-      - run: curl -sS -f -I -H "Authorization: token ${{ secrets.GITHUB_TOKEN}}" https://api.github.com
-      
-#      - name: check permissions
-#        run: ./check-permissions.sh ${{ secrets.GITHUB_TOKEN }}
+            
+      - name: check permissions
+        run: ./check-permissions.sh ${{ secrets.GITHUB_TOKEN }}
 
