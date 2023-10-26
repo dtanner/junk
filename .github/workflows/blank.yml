@@ -1,18 +1,20 @@
 name: junk
 
 on:
+  issue_comment:
+  
   workflow_dispatch:
     
 jobs:
   foo:    
     runs-on: ubuntu-latest
+  
+    environment:
+      name: buildPullRequest
 
     steps:
       - uses: actions/checkout@v3
             
-      - name: check permissions
-        run: ./check-permissions.sh ${{ secrets.GITHUB_TOKEN }}
-
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
